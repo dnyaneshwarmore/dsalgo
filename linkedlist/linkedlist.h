@@ -23,8 +23,10 @@ void insertAtBeginning(struct node ** head,int data){
 };
 
 int deleteFirst(struct node ** head){
+    
+    printf("\ninside the delete first\n");
     if(*head==NULL){
-        printf("already empty");
+        printf("already empty\n");
         return 0;
     }
     struct node *tmp = *head;
@@ -40,7 +42,7 @@ void insertAtLast(struct node **head,int data){
     }
     else
     {
-        current = *head;
+        current = (*head);
         while (current->next!=NULL)
          {
             current=current->next;
@@ -52,13 +54,13 @@ void insertAtLast(struct node **head,int data){
 int deleteLast(struct node** head){
     struct node* current,*prev;
     if (*head==NULL){
-        printf("already empty");
+        printf("already empty\n");
         return 0;
     }
     else if ((*head)->next==NULL) {
-        free(*head);
-        *head=NULL;
-        
+        current=(*head);
+        (*head)=NULL;
+        free(current);
     }
     else
     {
@@ -79,7 +81,7 @@ int deleteLast(struct node** head){
 
 void print(struct node *head){
  if (head == NULL ) {
-     printf("no content found");
+     printf("no content found\n");
  }
  else
  {
