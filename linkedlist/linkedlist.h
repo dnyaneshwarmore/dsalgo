@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<math.h>
+#include<limits.h>
 
 struct node {
 int data;
@@ -91,4 +93,20 @@ void print(struct node *head){
      current=current->next;
      }
  }  
+}
+
+int kthValue(struct node *head, int k){
+    struct node *current = head;
+    int tmp=1;
+    if (head==NULL || k<1){
+        return INT_MIN;;
+    }
+    while(current!=NULL && k>=tmp){
+        if (tmp==k)
+            return current->data;
+        current=current->next;
+        tmp++;
+    }
+    return INT_MIN;
+
 }
